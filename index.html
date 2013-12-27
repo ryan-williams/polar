@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MathJax TeX Test Page</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+<body>
+<div>
+	$$
+	\int_{r_1=0}^R{ \frac{\pi(r_1 + dr_1)^2 - \pi r_1^2}{\pi R^2} \left( 
+		\int_{\theta_1=0}^{2\pi}{ \frac{d\theta_1}{2\pi}  \left(
+			\int_{r_2=0}^R{ \frac{\pi(r_2 + dr_2)^2 - \pi r_2^2}{\pi R^2} \left(
+				\int_{\theta_2=0}^{2\pi} { \frac{d\theta_2}{2\pi} d\left((r_1,\theta_1), (r_2, \theta_2)\right) }
+			\right) } 
+		\right) } 
+	\right) } \\
+
+	\int_{r_1=0}^R{ \frac{2r_1dr_1}{R^2} \left( 
+		\int_{\theta_1=0}^{2\pi}{ \frac{d\theta_1}{2\pi}  \left(
+			\int_{r_2=0}^R{ \frac{2r_2dr_2}{R^2} \left(
+				\int_{\theta_2=0}^{2\pi} { \frac{d\theta_2}{2\pi} d\left((r_1,\theta_1), (r_2, \theta_2)\right) }
+			\right) } 
+		\right) } 
+	\right) } \\
+	
+	\frac{1}{\pi^2R^4} \int_{r_1=0}^R{ r_1dr_1 \left( 
+		\int_{\theta_1=0}^{2\pi}{ d\theta_1  \left(
+			\int_{r_2=0}^R{ r_2dr_2 \left(
+				\int_{\theta_2=0}^{2\pi} { d\theta_2 d\left((r_1,\theta_1), (r_2, \theta_2)\right) }
+			\right) } 
+		\right) } 
+	\right) } \\
+	
+	\frac{1}{\pi^2R^4} 
+	\int_{r_1=0}^R{r_1 
+		\int_{\theta_1=0}^{2\pi}{ 
+			\int_{r_2=0}^R{ r_2 
+				\int_{\theta_d=0}^{2\pi} { 
+					d\left((r_1,\theta_1), (r_2, \theta_1 + \theta_d)\right) d\theta_d dr_2 d\theta_1 dr_1
+				}
+			}
+		}
+	} \\
+
+	\frac{2}{\pi^2R^4} 
+	\int_{r_1=0}^R{r_1 
+		\int_{\theta_1=0}^{2\pi}{ 
+			\int_{r_2=0}^R{ r_2 
+				\int_{\theta_d=0}^{\pi} { 
+					d\left((r_1,\theta_1), (r_2, \theta_1 + \theta_d)\right) d\theta_d dr_2 d\theta_1 dr_1
+				}
+			}
+		}
+	} \\
+
+	\begin{eqnarray*}
+
+	d\left((r_1,\theta_1), (r_2, \theta_2)\right) & = &
+		\left\{  
+			\begin{array}{ll}
+				r_1 + r_2 & \mbox{ if } \left| \theta_2 - \theta_1 \right| > 2 \\
+				min(r_2,r_1) \left| \theta_2 - \theta_1 \right| + \left| r_2-r_1 \right| & \mbox{ if } \left| \theta_2 - \theta_1 \right| <= 2
+			\end{array}
+		\right. \\
+
+	d\left((r_1, \theta_1), (r_2, \theta_1 + \theta_d)\right) & = &
+		\left\{  
+			\begin{array}{ll}
+				r_1 + r_2 & \mbox{ if } \theta_d > 2 \\
+				min(r_2,r_1) \theta_d + \left| r_2-r_1 \right| & \mbox{ if } \theta_d <= 2
+			\end{array}
+		\right. \\
+
+	\end{eqnarray*} \\
+
+	\frac{2}{\pi^2R^4} 
+	\int_{r_1=0}^R{r_1 
+		\int_{\theta_1=0}^{2\pi}{ 
+			\int_{r_2=0}^R{ r_2 
+				\int_{\theta_d=0}^{\pi} { 
+					 \left\{  
+						\begin{array}{ll}
+							r_1 + r_2 & \mbox{ if } \theta_d > 2 \\
+							min(r_2,r_1) \theta_d + \left| r_2-r_1 \right| & \mbox{ if } \theta_d <= 2
+						\end{array}
+					\right\} d\theta_d dr_2 d\theta_1 dr_1
+				}
+			}
+		}
+	} \\
+
+	\frac{4}{\pi R^4} 
+	\int_{r_1=0}^R{r_1 
+		\int_{r_2=0}^R{ r_2 
+			\int_{\theta_d=0}^{\pi} { 
+				 \left\{  
+					\begin{array}{ll}
+						r_1 + r_2 & \mbox{ if } \theta_d > 2 \\
+						min(r_2,r_1) \theta_d + \left| r_2-r_1 \right| & \mbox{ if } \theta_d <= 2
+					\end{array}
+				\right\} d\theta_d dr_2 dr_1
+			}
+		}
+	} \\
+
+	\frac{4}{\pi R^4} 
+	\int_{r_1=0}^R{r_1 
+		\int_{r_2=0}^R{ r_2 
+			\left(
+				\int_{\theta_d=0}^2 { 
+					\left(
+						min(r_2,r_1) \theta_d + \left| r_2-r_1 \right|
+					\right) d\theta_d
+				} +
+				\int_{\theta_d=2}^\pi {
+					\left( r_1 + r_2 \right) d\theta_d
+				}
+			\right) dr_2 dr_1
+		}
+	} \\
+
+	\frac{4}{\pi R^4} 
+	\int_{r_1=0}^R{r_1 
+		\int_{r_2=0}^R{ 
+			r_2 \left(
+				2min(r_2,r_1) + 
+				2\left| r_2-r_1 \right| +
+				\left( r_1 + r_2 \right) \left(\pi - 2\right)
+			\right) dr_2 dr_1
+		} 
+	} \\
+
+	\frac{4}{\pi R^4} 
+	\int_{r_1=0}^R{r_1 
+		\int_{r_2=0}^R{ 
+			r_2 \left(
+				2max(r_2,r_1) + 
+				\left( r_1 + r_2 \right) \left(\pi - 2\right)
+			\right) dr_2 dr_1
+		} 
+	} \\
+
+	\frac{4}{\pi R^4} 
+	\int_{r_1=0}^R{r_1 
+		\left(
+			\int_{r_2=0}^{r_1}{ 
+				2 r_2 r_1 dr_2 
+			} +
+			\int_{r_2=r_1}^R{
+				2r_2^2 dr_2
+			} +
+			\int_{r_2=0}^R{
+				r_2 \left( r_1 + r_2 \right) \left(\pi - 2\right) dr_2 
+			} 
+		\right) dr_1
+	} \\
+
+	\frac{4}{\pi R^4} 
+	\int_{r_1=0}^R{r_1 
+		\left(
+			2 r_1 \int_{r_2=0}^{r_1}{ 
+				r_2 dr_2 
+			} +
+			2 \int_{r_2=r_1}^R{
+				r_2^2 dr_2
+			} +
+			\left(\pi - 2\right) \int_{r_2=0}^R{
+				\left( r_1 r_2 + r_2^2 \right) dr_2 
+			} 
+		\right) dr_1
+	} \\
+
+	\frac{4}{\pi R^4} 
+	\int_{r_1=0}^R{r_1 
+		\left(
+			r_1^3 +
+			2 \left( \frac{R^3}{3} - \frac{r_1^3}{3} \right) +
+			\left(\pi - 2\right) \left( \frac{r_1 R^2}{2} + \frac{R^3}{3} \right) 
+		\right) dr_1
+	} \\
+
+	\frac{4}{\pi R^4} 
+	\int_{r_1=0}^R{ 
+		\left(
+			\frac{r_1^4}{3} +
+			\frac{\pi r_1 R^3}{3} +
+			\frac{\left(\pi - 2\right) r_1^2 R^2}{2}
+		\right) dr_1
+	} \\
+
+	\frac{4}{\pi R^4} 
+	\left(
+		\frac{R^5}{15} +
+		\frac{\pi R^5}{6} +
+		\frac{\left(\pi - 2\right) R^5}{6}
+	\right) \\
+
+	\frac{4R}{15\pi} \left( 5\pi - 4 \right) \\
+
+	$$
+
+
+</div>
+</body>
+</html>
